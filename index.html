@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GORGEOUS CUPCAKE</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<style>/* Reset styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4; /* Lighter background color */
+    color: #333; /* Darker text color */
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+/* Main header styles */
+#header {
+    background-color: #f06ab9; /* Pinkish-purple background for header */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000; /* Ensure main nav is on top */
+}
+
+#main-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+}
+
+#main-nav .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: #fff; /* White text color */
+}
+
+#main-nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+#main-nav ul li {
+    margin: 0 10px;
+}
+
+#main-nav ul li a {
+    color: #fff; /* White text color */
+    text-decoration: none;
+    padding: 10px;
+    transition: all 0.3s ease;
+}
+
+#main-nav ul li a:hover {
+    background-color: #d956b3; /* Lighter pinkish-purple background on hover */
+}
+
+/* Top header styles */
+#sticky-header-wrapper {
+    width: 100%;
+    position: relative;
+    display: block;
+}
+
+#top-header {
+    background-color: #f06ab9; /* Pinkish-purple background for top header */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 60px; /* Distance below main header */
+    z-index: 999; /* Ensure top header is below main nav */
+}
+
+#top-nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px 0;
+}
+
+#top-nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+#top-nav ul li {
+    margin: 0 10px;
+}
+
+#top-nav ul li a {
+    color: #fff; /* White text color */
+    text-decoration: none;
+    padding: 5px 10px;
+    transition: all 0.3s ease;
+}
+
+#top-nav ul li a:hover {
+    background-color: #d956b3; /* Lighter pinkish-purple background on hover */
+}
+
+/* Section styles */
+.section {
+    padding: 40px 0;
+    background-color: #fff; /* White background for sections */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.section h2 {
+    margin-bottom: 20px;
+    text-align: center;
+    color: #f06ab9; /* Pinkish-purple text color */
+}
+
+/* Footer styles */
+#footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+}
+
+#footer p {
+    margin: 0;
+    font-size: 0.8rem;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+    }
+
+    #main-nav {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    #main-nav .nav-left {
+        width: 100%;
+        order: 1;
+        margin-bottom: 10px;
+    }
+
+    #main-nav .nav-right {
+        width: 100%;
+        order: 3;
+    }
+
+    #main-nav ul {
+        flex-direction: row;
+    }
+
+    #main-nav ul li {
+        margin: 0 5px;
+    }
+}
+
+/* Styles for product cards */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.product-card {
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+}
+
+.product-image img {
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.teddy-image img{
+ width: 70%;
+ height: 70%;
+}
+
+.product-info h3 {
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+
+.product-info p {
+    margin-bottom: 15px;
+    color: #666;
+}
+
+.product-info button {
+    background-color: #ff5ca1; /* Bright pinkish-purple */
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.product-info button:hover {
+    background-color: #e64a8e; /* Darker pinkish-purple on hover */
+}
+
+/* Ensure consistency in spacing and styling for a cohesive product grid */
+#gallery,
+#specials,
+#faq,
+#contact,
+#signup,
+#cart {
+    background-color: #fff;
+    padding: 40px 0;
+    text-align: center;
+}
+</style>
+<script>// JavaScript for fixing the top-header position dynamically
+window.addEventListener('scroll', function() {
+    var header = document.getElementById('header');
+    var topHeader = document.getElementById('top-header');
+    var stickyHeaderWrapper = document.getElementById('sticky-header-wrapper');
+
+    if (window.scrollY > header.offsetHeight) {
+        topHeader.style.position = 'fixed';
+        topHeader.style.top = '0';
+        stickyHeaderWrapper.style.height = topHeader.offsetHeight + 'px'; // Ensure wrapper height matches top-header height
+    } else {
+        topHeader.style.position = 'sticky';
+        topHeader.style.top = '60px'; // Distance below main header
+        stickyHeaderWrapper.style.height = 'auto';
+    }
+});
+</script>
+<header id="header">
+  
+    <div class="container">
+      
+        <nav id="main-nav"><h2>
+          <a href="#" class="logo">GORGEOUS CUPCAKE</a></h2>
+           
+            <div class="nav-left">
+               
+                <ul>
+                    <li><a href="#shop">SHOP NOW</a></li>
+                    <li><a href="#gallery">GALLERY</a></li>
+                    <li><a href="#specials">SPECIALS</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="nav-right">
+                <ul>
+                    <li><a href="#contact">CONTACT</a></li>
+                    <li><a href="#signup">SIGN UP / IN</a></li>
+                    <li><a href="#cart">CART</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</header>
+
+<div id="sticky-header-wrapper">
+    <header id="top-header">
+        <div class="container">
+            <nav id="top-nav">
+                <ul>
+                    <li><a href="#">FREE DELIVERY</a></li>
+                    <li><a href="#">BULK ORDER CUPCAKES</a></li>
+                    <li><a href="#">BUY NOW PAY LATER</a></li>
+                    <li><a href="#">DELICIOUS GIFTS</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+</div>
+
+<section id="shop" class="section">
+    <div class="container">
+        <h2>MENU</h2>
+        <div class="product-grid">
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="C:\Users\sspj2\OneDrive\Desktop\goandgc\gccake\Belgian Chocolate Cupcake.png" alt="Belgian Chocolate Cupcake">
+                </div>
+                <div class="product-info">
+                    <h4>Belgian Chocolate Cupcake</h4>
+                    <p>A rich chocolate cupcake topped with Belgian chocolate frosting.</p>
+                    <button>Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="C:\Users\sspj2\OneDrive\Desktop\goandgc\gccake\Blackberry cupcake.png" alt="Blackberry Cupcake">
+                </div>
+                <div class="product-info">
+                    <h4>Blackberry Cupcake</h4>
+                    <p>A delightful cupcake with fresh blackberries and vanilla frosting.</p>
+                    <button>Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="C:\Users\sspj2\OneDrive\Desktop\goandgc\gccake\blueberry cupcake.png" alt="Blueberry Cupcake">
+                </div>
+                <div class="product-info">
+                    <h4>Blueberry Cupcake</h4>
+                    <p>A light cupcake bursting with blueberry flavor and cream cheese frosting.</p>
+                    <button>Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="C:\Users\sspj2\OneDrive\Desktop\goandgc\gccake\cherry ripe.png" alt="Cherry Ripe Cupcake">
+                </div>
+                <div class="product-info">
+                    <h4>Cherry Ripe Cupcake</h4>
+                    <p>A decadent cupcake filled with cherry compote and topped with chocolate ganache.</p>
+                    <button>Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="C:\Users\sspj2\OneDrive\Desktop\goandgc\gccake\Carrot and walnut.png" alt="Carrot and Walnut Cupcake">
+                </div>
+                <div class="product-info">
+                    <h4>Carrot and Walnut Cupcake</h4>
+                    <p>A moist carrot cake cupcake with chopped walnuts and cream cheese frosting.</p>
+                    <button>Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="C:\Users\sspj2\OneDrive\Desktop\goandgc\gccake\lemon cupcake.png" alt="Lemon Cupcake">
+                </div>
+                <div class="product-info">
+                    <h4>Lemon Cupcake</h4>
+                    <p>A tangy lemon cupcake topped with lemon buttercream and zest.</p>
+                    <button>Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="C:\Users\sspj2\OneDrive\Desktop\goandgc\gccake\oreo cupcake.png" alt="Oreo Cupcake">
+                </div>
+                <div class="product-info">
+                    <h4>Oreo Cupcake</h4>
+                    <p>A delightful cupcake with Oreo cookie crumbs in the batter and Oreo frosting.</p>
+                    <button>Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="C:\Users\sspj2\OneDrive\Desktop\goandgc\gccake\passion fruit cupcake.png" alt="Passion Fruit Cupcake">
+                </div>
+                <div class="product-info">
+                    <h4>Passion Fruit Cupcake</h4>
+                    <p>A tropical cupcake with passion fruit curd filling and vanilla buttercream.</p>
+                    <button>Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="C:\Users\sspj2\OneDrive\Desktop\goandgc\gccake\peanutbutter and jam.png" alt="Peanut Butter and Jam Cupcake">
+                </div>
+                <div class="product-info">
+                    <h4>Peanut Butter and Jam Cupcake</h4>
+                    <p>A delicious twist on a PB&amp;J sandwich in cupcake form.</p>
+                    <button>Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="C:\Users\sspj2\OneDrive\Desktop\goandgc\gccake\Pistachio Cupcake.png" alt="Pistachio Cupcake">
+                </div>
+                <div class="product-info">
+                    <h4>Pistachio Cupcake</h4>
+                    <p>A nutty cupcake with ground pistachios and pistachio buttercream.</p>
+                    <button>Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="C:\Users\sspj2\OneDrive\Desktop\goandgc\gccake\red velvet cupcake.png" alt="Red Velvet Cupcake">
+                </div>
+                <div class="product-info">
+                    <h4>Red Velvet Cupcake</h4>
+                    <p>A classic red velvet cupcake with cream cheese frosting.</p>
+                    <button>Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="C:\Users\sspj2\OneDrive\Desktop\goandgc\gccake\salted caramel cupcake.png" alt="Salted Caramel Cupcake">
+                </div>
+                <div class="product-info">
+                    <h4>Salted Caramel Cupcake</h4>
+                    <p>A heavenly cupcake with salted caramel filling and caramel buttercream.</p>
+                    <button>Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="C:\Users\sspj2\OneDrive\Desktop\goandgc\gccake\strawberry cupcake.png" alt="Strawberry Cupcake">
+                </div>
+                <div class="product-info">
+                    <h4>Strawberry Cupcake</h4>
+                    <p>A strawberry-infused cupcake with fresh strawberry frosting.</p>
+                    <button>Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">
+				<div class="teddy-image">
+                    <img src="C:\Users\sspj2\OneDrive\Desktop\goandgc\gccake\Tiny Teddy cupcake.png" alt="Tiny Teddy Cupcake">
+                </div>
+				</div>
+                <div class="product-info">
+                    <h4>Tiny Teddy Cupcake</h4>
+                    <p>A whimsical cupcake adorned with tiny teddy biscuits and chocolate ganache.</p>
+                    <button>Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="C:\Users\sspj2\OneDrive\Desktop\goandgc\gccake\Tiramisu Cupcake.png" alt="Tiramisu Cupcake">
+                </div>
+                <div class="product-info">
+                    <h4>Tiramisu Cupcake</h4>
+                    <p>A classic Italian dessert cupcake with coffee-soaked sponge and mascarpone frosting.</p>
+                    <button>Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="C:\Users\sspj2\OneDrive\Desktop\goandgc\gccake\vanilla cupcake.png" alt="Vanilla Cupcake">
+                </div>
+                <div class="product-info">
+                    <h4>Vanilla Cupcake</h4>
+                    <p>A timeless favorite with moist vanilla cake and creamy vanilla bean frosting.</p>
+                    <button>Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Other sections (Gallery, Specials, FAQ, Contact, etc.) -->
+
+<footer id="footer">
+    <div class="container">
+        <p>&copy; 2024 GORGEOUS CUPCAKE. All rights reserved.</p>
+    </div>
+</footer>
+
+
+</body>
+</html>
